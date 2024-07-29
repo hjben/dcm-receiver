@@ -2,7 +2,7 @@
 This module provides a class for a dicom-receiving service.
 
 Classes:
-    - Receiver: Run a dicom file receiver service, which is wating for a dcm-sending event and processing it.
+    - Receiver: Run a dicom file receiver service, which is waiting for a dcm-sending event and processing if it occurs.
 """
 import os
 

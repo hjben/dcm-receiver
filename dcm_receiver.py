@@ -1,8 +1,11 @@
 """
-This module provides a class for a dicom-receiving service.
+This module provides a main class for a dicom-receiving service.
+
+The service starts with launching AE module in pynetdicom, which listens the dicom receive event.
+If a receiving event raised, it verify file received and save it.
 
 Classes:
-    - Receiver: Run a dicom file receiver service, which is waiting for a dcm-sending event and processing if it occurs.
+    - Receiver: Run a dicom file receiver service, which is waiting for a dcm-receiving event and processing if it occurs.
 """
 import os
 
@@ -14,7 +17,7 @@ from dcm_receiver_config import get_receiver_cfg
 
 class Receiver:
     """
-    Run a dicom file receiver service, which is wating for a dcm-send event and processing it.
+    Run a dicom file receiver service, which is wating for a dcm-receiving event and processing it.
 
     Public attributes:
         - receiver_cfg: configurations read from dcm_receiver_config.py
@@ -24,7 +27,7 @@ class Receiver:
 
     def handle_store(self, event):
         """
-            Process the dcm-send event if it occurs. 
+            Process the dcm-receiving event if it raises. 
 
             Parameters
             ----------
@@ -58,7 +61,7 @@ class Receiver:
     
     def receive_dicom_files_periodically(self):
         """
-            Start a service waiting for dcm-send event.
+            Start a service waiting for dcm-receiving event.
 
             Parameters
             ----------
@@ -90,5 +93,6 @@ if __name__=="__main__":
     print("[*] Receiver started..")
     print(f"[*] Datetime: {datetime.now().strftime('%Y.%m.%d %H:%M:%S')}")
 
+    # define receiver and launch AE module to listen
     receiver = Receiver()
     receiver.receive_dicom_files_periodically()

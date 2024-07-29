@@ -1,5 +1,5 @@
 """
-This module has a function to test the dicom receiver.
+This module has a function to test a dicom receiver.
 
 Functions:
     - dcm_send: send a dcm file to the target receiver.
@@ -14,7 +14,7 @@ tmp_receiver_ip = '127.0.0.1' # external IP of receiver
 
 def dcm_send(dcm_path: str):
     """
-        Send a dcm file to the target receiver and print the result.
+        Send a dcm file to the target receiver and print the send result.
 
         Parameters
         ----------

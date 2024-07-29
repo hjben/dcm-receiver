@@ -1,5 +1,5 @@
 """
-This module has a function to test a dicom receiver.
+This module has a dicom sender to test a receiver.
 
 Functions:
     - dcm_send: send a dcm file to the target receiver.
@@ -36,4 +36,4 @@ def dcm_send(dcm_path: str):
         print('DCM send successed')
 
 if __name__=="__main__":
-    dcm_send("./send_sample.dcm")
+    dcm_send("./dummy_dcm/send_sample.dcm")

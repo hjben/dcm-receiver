@@ -26,7 +26,7 @@ def check_receiver_health():
         Boolean
             True if the dcm_receiver.py process is alive, False otherwise.
     """
-    result = subprocess.run(f"python -m pynetdicom storescu {receiver_cfg['IP']} {receiver_cfg['PORT']} '{os.path.join(receiver_cfg['PRJ_ABS_PATH'], 'test_' + receiver_cfg['TEST_DCM_SOP_ID'] + '.dcm')}' -v -cx", capture_output=True, text=True, shell=True)
+    result = subprocess.run(f"python -m pynetdicom storescu {receiver_cfg['IP']} {receiver_cfg['PORT']} '{os.path.join(receiver_cfg['PRJ_ABS_PATH'], 'dummy_dcm', 'test_' + receiver_cfg['TEST_DCM_SOP_ID'] + '.dcm')}' -v -cx", capture_output=True, text=True, shell=True)
 
     if (result.stdout + '\n' + result.stderr).find('Success') < 0: # if test send failed
         return False
